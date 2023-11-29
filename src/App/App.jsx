@@ -11,7 +11,7 @@ function App() {
       <Button text="toto" type="button" />
       <Button text="tata" type="submit" />
       <Button model="primary" text="titi" type="reset" />
-      <Button model="error"
+      <Button model="error" bgColor='tomato'
         text="titi"
         size={{
           margin: { bottom: "12px", right: "24px" },

@@ -5,13 +5,7 @@ const Button = (props) => {
   console.log(props);
   //afect impossible --> props.text+='coucou'
   return (
-    <button
-      type={props.type}
-      className={
-        styles.Button +
-        (props.model !== undefined ? " " + styles[props.model] : "")
-      }
-    >
+    <button type={props.type} className={styles.Button} style={{backgroundColor:props.bgColor}}>
       {props.text}
     </button>
   );
