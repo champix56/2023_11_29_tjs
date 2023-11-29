@@ -9,7 +9,7 @@ const Button=(props)=>{
 //https://fr.legacy.reactjs.org/docs/typechecking-with-proptypes.htm
 Button.propTypes={
     text: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['submit','reset','button']).isRequired,
+    type: PropTypes.oneOf(['submit','reset','button']),
     size: PropTypes.shape({
         margin: PropTypes.shape({
           bottom: PropTypes.string,
@@ -21,6 +21,8 @@ Button.propTypes={
         })
     })
 }
-
+Button.defaultProps={
+    type:'button'
+}
 
 export default Button;
