@@ -9,6 +9,9 @@ class App extends React.Component {
     super(props);
     this.state={counter:0}
   }
+  componentDidUpdate(prevProps,prevState){
+    console.log('state',prevState,this.state)
+  }
   render() {
     return (
       <div className="App">
@@ -19,7 +22,8 @@ class App extends React.Component {
           type="button"
           onButtonClicked={() => {
             this.setState({counter:this.state.counter+1})
-            console.log(this.state.counter);
+            //console.log(this.state.counter);
+
           }}
         />
         <Button text="enlever 1" type="button" />
