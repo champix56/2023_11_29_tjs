@@ -4,25 +4,22 @@ import "./App.css";
 import Button from "./components/Button/Button";
 
 class App extends React.Component {
-  #counter;
+ 
   constructor(props) {
     super(props);
-    this.#counter = 0;
+    this.state={counter:0}
   }
   render() {
     return (
       <div className="App">
-        valeur {this.#counter}
+        valeur {this.state.counter}
         <hr />
         <Button
           text="ajouter 1"
           type="button"
           onButtonClicked={() => {
-            alert("le button est clicked");
-            this.#counter += 1;
-            //mauvaise pratique 
-            //this.forceUpdate();
-            console.log(this.#counter);
+            this.setState({counter:this.state.counter+1})
+            console.log(this.state.counter);
           }}
         />
         <Button text="enlever 1" type="button" />
