@@ -10,8 +10,8 @@ function App() {
       <hr />
       <Button text="toto" type="button" />
       <Button text="tata" type="submit" />
-      <Button text="titi" type="reset" />
-      <Button
+      <Button model="primary" text="titi" type="reset" />
+      <Button model="error"
         text="titi"
         size={{
           margin: { bottom: "12px", right: "24px" },

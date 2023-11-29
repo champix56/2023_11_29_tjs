@@ -13,6 +13,12 @@
     color : white;
     background-color: green;
 }
+.primary{
+    background-color: skyblue;
+}
+.error{
+    background-color: tomato;
+}
 .Button:hover{
     box-shadow: 10px 10px 25px grey;
     border: 1px solid grey;
