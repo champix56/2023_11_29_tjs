@@ -3,23 +3,17 @@ import React from "react";
 import "./App.css";
 import Button from "./components/Button/Button";
 
-function App() {
-  return (
-    <div className="App">
-      DEMAT BREIZH
-      <hr />
-      <Button text="toto" type="button" />
-      <Button text="tata" type="submit" />
-      <Button model="primary" text="titi" type="reset" />
-      <Button model="error" bgColor='tomato'
-        text="titi"
-        size={{
-          margin: { bottom: "12px", right: "24px" },
-          padding: { h: "10px", w: "20px" },
-        }}
-      />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        valeur XX
+        <hr />
+        <Button text="ajouter 1" type="button" />
+        <Button text="enlever 1" type="button" />
+      </div>
+    );
+  }
 }
 
 export default App;
