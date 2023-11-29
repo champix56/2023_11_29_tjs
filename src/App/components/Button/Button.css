@@ -1,0 +1,19 @@
+.Button{
+    all:unset;
+    padding: 5px 20px;
+    font-size: large;
+    font-weight: 900;
+    border-radius: 8px;
+    text-align: center;
+    min-width:100px ;
+    box-shadow: 15px 20px 25px grey;
+    margin-right:20px ;
+    margin-bottom:15px ;
+
+    color : white;
+    background-color: green;
+}
+.Button:hover{
+    box-shadow: 10px 10px 25px grey;
+    border: 1px solid grey;
+}
