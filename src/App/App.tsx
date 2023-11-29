@@ -7,9 +7,10 @@ function App() {
   return (
     <div className="App">DEMAT BREIZH
       <hr/>
-      <Button text="toto" />
-      <Button text="tata"/>
-      <Button text="titi"/>
+      <Button text="toto" type="button"/>
+      <Button text="tata" type="submit"/>
+      <Button text="titi" type="reset"/>
+      <Button text="titi" />
     </div>
   );
 }
