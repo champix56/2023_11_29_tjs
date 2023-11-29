@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">DEMAT BREIZH
       <hr/>
-      <Button/>
+      <Button text="toto" />
+      <Button text="tata"/>
+      <Button text="titi"/>
     </div>
   );
 }
