@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Button.module.css";
 import PropTypes from "prop-types";
 const Button = (props) => {
@@ -8,6 +8,14 @@ const Button = (props) => {
     clickState: false,
     info2: "coucou",
   });
+  useEffect(() => {
+    //la valeur a changer
+    if (isClicked.clickState) {
+      setTimeout(() => {
+        setisClicked({ ...isClicked, clickState: false });
+      }, 230);
+    }
+  }, [isClicked]);
   return (
     <button
       onClick={(evt) => {
