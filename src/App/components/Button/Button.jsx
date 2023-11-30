@@ -24,7 +24,9 @@ const Button = (props) => {
         // setTimeout(() => {
         //   setisClicked({ ...isClicked, clickState: true });
         // }, 700);
-        //props.onButtonClicked();
+        if (props.onButtonClicked!==undefined ) {
+          props.onButtonClicked();
+        }
       }}
       type={props.type}
       className={
