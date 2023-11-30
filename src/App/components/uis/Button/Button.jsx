@@ -40,6 +40,7 @@ const Button = (props) => {
 };
 //https://fr.legacy.reactjs.org/docs/typechecking-with-proptypes.htm
 Button.propTypes = {
+  onButtonClicked: PropTypes.func,
   children: PropTypes.any.isRequired,
   type: PropTypes.oneOf(["submit", "reset", "button"]),
   size: PropTypes.shape({
