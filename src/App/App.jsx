@@ -7,21 +7,26 @@ import FlexHGrow3 from "./components/layouts/FlexHGrow3/FlexHGrow3";
 import FlexWGrow1 from "./components/layouts/FlexWGrow1/FlexWGrow1";
 import MemeSvgViewer from "./components/uis/MemeSvgViewer/MemeSvgViewer";
 import MemeForm from "./components/functionnal/MemeForm/MemeForm";
-import {emptyMeme} from 'orsys-tjs-meme'
+import { emptyMeme } from "orsys-tjs-meme";
 const App = () => {
-  const [current, setcurrent] = useState(emptyMeme)
+  const [current, setcurrent] = useState(emptyMeme);
   return (
-    <div className="App" data-testid="App">
-      <FlexHGrow3 style={{height:'calc(100vh - 30px)'}}>
-        <Header />
-        <Navbar />
-        <FlexWGrow1>
-          <MemeSvgViewer meme={current} />
-          <MemeForm meme={current}/>
-        </FlexWGrow1>
-        <Footer />
-      </FlexHGrow3>
-    </div>
+    <>
+      {JSON.stringify(current)}
+      <div className="App" data-testid="App">
+        <FlexHGrow3 style={{ height: "calc(100vh - 30px)" }}>
+          <Header />
+          <Navbar />
+          <FlexWGrow1>
+            <MemeSvgViewer meme={current} />
+            <MemeForm meme={current} onMemeChange={meme=>{
+              setcurrent({...current,...meme})
+            }} />
+          </FlexWGrow1>
+          <Footer />
+        </FlexHGrow3>
+      </div>
+    </>
   );
 };
 
