@@ -1,7 +1,8 @@
-import React  from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styles from "./MemeForm.module.css";
- 
+import Button from "../../uis/Button/Button";
+
 const MemeForm = (props) => {
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
@@ -106,6 +107,15 @@ const MemeForm = (props) => {
         />
         px
         <br />
+        <hr/>
+        <div className={styles.flexCols2}>
+          <Button type={"reset"} bgColor={"tomato"}>
+            Cancel
+          </Button>
+          <Button type={"submit"} bgColor={"skyblue"}>
+            Save
+          </Button>
+        </div>
       </form>
     </div>
   );
