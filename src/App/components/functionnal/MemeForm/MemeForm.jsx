@@ -176,7 +176,8 @@ const MemeForm = (props) => {
           type="number"
           min="0"
         />
-        px{" "}
+        px
+        <br/>
         <label htmlFor="frameSizeY">
           <h2 className={styles.inline}>frame size y :</h2>
         </label>
@@ -188,6 +189,8 @@ const MemeForm = (props) => {
           min="0"
         />
         px
+        <br />
+        <hr />
         <br />
         <div className={styles.flexCols2}>
           <Button type={"reset"} bgColor={"tomato"}>
