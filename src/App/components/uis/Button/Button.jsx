@@ -34,13 +34,13 @@ const Button = (props) => {
       }
       style={{ backgroundColor: props.bgColor }}
     >
-      {props.text}
+      {props.children}
     </button>
   );
 };
 //https://fr.legacy.reactjs.org/docs/typechecking-with-proptypes.htm
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
   type: PropTypes.oneOf(["submit", "reset", "button"]),
   size: PropTypes.shape({
     margin: PropTypes.shape({
