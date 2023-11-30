@@ -5,7 +5,7 @@ import FlexWGrow1 from './FlexWGrow1';
 
 describe('<FlexWGrow1 />', () => {
   test('it should mount', () => {
-    render(<FlexWGrow1 ></FlexWGrow1>);
+    render(<FlexWGrow1 >hjgfbdfvsd</FlexWGrow1>);
     
     const FlexWGrow1 = screen.getByTestId('FlexWGrow1');
 
