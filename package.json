@@ -23,6 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "json": "json-server -p 5679 db/db.json",
     "genlayout": "npx generate-react-cli c --type=layout ",
     "gencomponent": "npx generate-react-cli c "
   },
