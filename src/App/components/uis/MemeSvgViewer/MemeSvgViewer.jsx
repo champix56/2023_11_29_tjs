@@ -5,7 +5,10 @@ import styles from "./MemeSvgViewer.module.css";
 const MemeSvgViewer = (props) => {
   return (
     <div className={styles.MemeSvgViewer} data-testid="MemeSvgViewer">
-      <svg viewBox="0 0 100 100">
+      <svg viewBox={`0 0 ${props.image?props.image.w:100} ${props.image?props.image.h:100}`}>
+        {undefined !== props.image && (
+          <image href={props.image.url} x="0" y="0" />
+        )}
         <text
           style={{
             fontSize: props.meme.fontSize,
@@ -24,7 +27,16 @@ const MemeSvgViewer = (props) => {
   );
 };
 
-MemeSvgViewer.propTypes = { meme: PropTypes.object.isRequired };
+MemeSvgViewer.propTypes = {
+  meme: PropTypes.object.isRequired,
+  image: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    w: PropTypes.number.isRequired,
+    h: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }),
+};
 MemeSvgViewer.defaultProps = {};
 
 export default MemeSvgViewer;

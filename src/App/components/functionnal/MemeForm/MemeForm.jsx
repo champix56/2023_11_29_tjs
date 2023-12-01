@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./MemeForm.module.css";
 import Button from "../../uis/Button/Button";
@@ -46,15 +46,15 @@ const MemeForm = (props) => {
           onChange={manageStringChangeEvent}
         />
         <hr />
-        <label htmlFor="image">
+        <label htmlFor="imageId">
           <h2>Image</h2>
         </label>
         <br />
-        <select name="image" id="image">
-          <option value="1">futurama1.jpg</option>
-          <option value="2">futurama2.png</option>
-          <option value="3">futurama3.png</option>
-          <option value="4">gwenadu.jpg</option>
+        <select name="imageId" id="imageId" value={props.meme.imageId} onChange={manageNumberChangeEvent}>
+          <option value="-1">No image</option>
+          {props.images.map((img, position) => (
+            <option key={position} value={img.id}>{img.titre}</option>
+          ))}
         </select>
         <hr />
         <label htmlFor="text">
@@ -177,7 +177,7 @@ const MemeForm = (props) => {
           min="0"
         />
         px
-        <br/>
+        <br />
         <label htmlFor="frameSizeY">
           <h2 className={styles.inline}>frame size y :</h2>
         </label>
@@ -205,7 +205,10 @@ const MemeForm = (props) => {
   );
 };
 
-MemeForm.propTypes = {};
+MemeForm.propTypes = {
+  images: PropTypes.array.isRequired,
+  meme: PropTypes.object.isRequired,
+};
 MemeForm.defaultProps = {};
 
 export default MemeForm;
