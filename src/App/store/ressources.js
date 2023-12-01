@@ -12,6 +12,9 @@ const ressources = createSlice({
     fillImages:(state,action)=>{
         state.images.splice(0)
         state.images.push(...action.payload)
+    },
+    pushImage:(state,action)=>{
+        state.images.push(action.payload)
     }
   },
   extraReducers:{
@@ -19,7 +22,7 @@ const ressources = createSlice({
   }
 });
 
-export const {fillImages} = ressources.actions
+export const {fillImages,pushImage} = ressources.actions
 
 const ressourceReducer=ressources.reducer
 export default ressourceReducer
