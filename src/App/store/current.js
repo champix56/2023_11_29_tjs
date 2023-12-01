@@ -12,7 +12,7 @@ const current = createSlice({
             Object.assign(state, emptyMeme)
         },
         update: (state, action) => {
-            Object.assign(state, action.payloads)
+            Object.assign(state, action.payload)
         }
     }
 });
