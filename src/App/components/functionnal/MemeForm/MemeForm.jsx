@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./MemeForm.module.css";
 import Button from "../../uis/Button/Button";
+import { store } from "../../../store/store";
 let initialMemeOnEditorMount; //=props.meme;
 const MemeForm = (props) => {
+  //const [images, setimages] = useState([])
   /* const [state, setstate] = useState(props.meme);
   useEffect(() => {
     setstate(props.meme);
@@ -50,10 +52,17 @@ const MemeForm = (props) => {
           <h2>Image</h2>
         </label>
         <br />
-        <select name="imageId" id="imageId" value={props.meme.imageId} onChange={manageNumberChangeEvent}>
+        <select
+          name="imageId"
+          id="imageId"
+          value={props.meme.imageId}
+          onChange={manageNumberChangeEvent}
+        >
           <option value="-1">No image</option>
           {props.images.map((img, position) => (
-            <option key={position} value={img.id}>{img.titre}</option>
+            <option key={position} value={img.id}>
+              {img.titre}
+            </option>
           ))}
         </select>
         <hr />
@@ -204,11 +213,25 @@ const MemeForm = (props) => {
     </div>
   );
 };
-
 MemeForm.propTypes = {
+  meme: PropTypes.object.isRequired,
   images: PropTypes.array.isRequired,
+};
+
+export const MemeFormConnected = (props) => {
+  const [state, setstate] = useState([]);
+  useEffect(() => {
+    setstate(store.getState().images);
+    store.subscribe(() => {
+      setstate(store.getState().images);
+    });
+  }, []);
+  return <MemeForm {...props} images={state} />;
+};
+MemeFormConnected.propTypes = {
   meme: PropTypes.object.isRequired,
 };
+
 MemeForm.defaultProps = {};
 
 export default MemeForm;
