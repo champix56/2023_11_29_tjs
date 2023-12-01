@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./MemeForm.module.css";
 import Button from "../../uis/Button/Button";
-import { store } from "../../../store/store";
+// import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { update } from "../../../store/current";
+
 let initialMemeOnEditorMount; //=props.meme;
 const MemeForm = (props) => {
   //const [images, setimages] = useState([])
@@ -217,21 +220,37 @@ MemeForm.propTypes = {
   meme: PropTypes.object.isRequired,
   images: PropTypes.array.isRequired,
 };
-
-export const MemeFormConnected = (props) => {
-  const [state, setstate] = useState([]);
-  useEffect(() => {
-    setstate(store.getState().images);
-    store.subscribe(() => {
-      setstate(store.getState().images);
-    });
-  }, []);
-  return <MemeForm {...props} images={state} />;
-};
-MemeFormConnected.propTypes = {
-  meme: PropTypes.object.isRequired,
-};
-
 MemeForm.defaultProps = {};
 
 export default MemeForm;
+
+export const MemeFormHookConnected = (props) => {
+  const images = useSelector((s) => s.ressources.images);
+  const current = useSelector((s) => s.current);
+  const dispatch = useDispatch();
+  return (
+    <MemeForm
+      {...props}
+      images={images}
+      meme={current}
+      onMemeChange={(meme) => dispatch(update(meme))}
+    />
+  );
+};
+
+/*
+function mapStateToProps(state, props) {
+  return { ...props, images: state.images };
+}
+function mapDispatchToProps(dispacth) {
+  return {
+    onMemeChange: (meme) => {
+      dispacth(creatorUpdate(meme));
+    },
+  };
+}
+export const MemeFormConnectConnected = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MemeForm);
+*/
