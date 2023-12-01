@@ -201,6 +201,36 @@
       "frameSizeX": 0,
       "frameSizeY": 0,
       "id": 10
+    },
+    {
+      "titre": "htgdsfedqs",
+      "text": "rethgj;klm",
+      "x": 0,
+      "y": 17,
+      "fontWeight": "500",
+      "fontSize": 30,
+      "underline": false,
+      "italic": false,
+      "imageId": 3,
+      "color": "#000000",
+      "frameSizeX": 0,
+      "frameSizeY": 0,
+      "id": 11
+    },
+    {
+      "titre": "",
+      "text": "thgfbdvsc",
+      "x": 0,
+      "y": 200,
+      "fontWeight": "500",
+      "fontSize": 300,
+      "underline": false,
+      "italic": false,
+      "imageId": 3,
+      "color": "#000000",
+      "frameSizeX": 0,
+      "frameSizeY": 0,
+      "id": 12
     }
   ]
 }
