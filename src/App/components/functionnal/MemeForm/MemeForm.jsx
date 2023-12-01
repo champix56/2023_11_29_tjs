@@ -4,7 +4,7 @@ import styles from "./MemeForm.module.css";
 import Button from "../../uis/Button/Button";
 // import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
-import { update } from "../../../store/current";
+import { save, update } from "../../../store/current";
 
 let initialMemeOnEditorMount; //=props.meme;
 const MemeForm = (props) => {
@@ -33,6 +33,9 @@ const MemeForm = (props) => {
       <form
         onSubmit={(evt) => {
           evt.preventDefault();
+          if (props.onMemeSubmit) {
+            props.onMemeSubmit(props.meme);
+          }
           //
         }}
         onReset={(evt) => {
@@ -219,6 +222,8 @@ const MemeForm = (props) => {
 MemeForm.propTypes = {
   meme: PropTypes.object.isRequired,
   images: PropTypes.array.isRequired,
+  onMemeChange: PropTypes.func.isRequired,
+  onMemeSubmit: PropTypes.func,
 };
 MemeForm.defaultProps = {};
 
@@ -233,7 +238,12 @@ export const MemeFormHookConnected = (props) => {
       {...props}
       images={images}
       meme={current}
-      onMemeChange={(meme) => dispatch(update(meme))}
+      onMemeChange={(meme) => {
+        dispatch(update(meme));
+      }}
+      onMemeSubmit={(meme) => {
+        dispatch(save(meme));
+      }}
     />
   );
 };
