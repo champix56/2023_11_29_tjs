@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Button.module.css";
 import PropTypes from "prop-types";
 const Button = (props) => {
-  console.log(props);
+ // console.log(props);
   //afect impossible --> props.text+='coucou'
   const [isClicked, setisClicked] = useState({
     clickState: false,
